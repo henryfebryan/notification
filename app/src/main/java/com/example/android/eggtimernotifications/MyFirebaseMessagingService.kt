@@ -7,6 +7,10 @@ import com.google.firebase.messaging.RemoteMessage
 class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         Log.d("TAG", "From: ${remoteMessage?.from}")
+
+        remoteMessage?.data?.let {
+            Log.d("TAG", "Message data payload: " + remoteMessage.data)
+        }
     }
 
     // TODO: Step 3.2 log registration token
